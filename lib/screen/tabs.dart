@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mealsapp/commonWidgets/custom_alert.dart';
 import 'package:mealsapp/models/meal.dart';
 import 'package:mealsapp/screen/categories.dart';
 import 'package:mealsapp/screen/meals.dart';
@@ -23,10 +24,44 @@ class _TabsScreenState extends State<TabsScreen> {
       setState(() {
         _favouriteMeals.remove(meal);
       });
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return CustomAlert(
+            title: 'Remove favourite meal',
+            message: '${meal.title}',
+            actions: [
+              TextButton(
+                child: Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
     } else {
       setState(() {
         _favouriteMeals.add(meal);
       });
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return CustomAlert(
+            title: "Add favourite meal",
+            message: '${meal.title}',
+            actions: [
+              TextButton(
+                child: Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
     }
     print(_favouriteMeals);
   }
