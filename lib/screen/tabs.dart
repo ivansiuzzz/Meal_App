@@ -20,9 +20,13 @@ class _TabsScreenState extends State<TabsScreen> {
     final isExisting = _favouriteMeals.contains(meal);
 
     if (isExisting) {
-      _favouriteMeals.remove(meal);
+      setState(() {
+        _favouriteMeals.remove(meal);
+      });
     } else {
-      _favouriteMeals.add(meal);
+      setState(() {
+        _favouriteMeals.add(meal);
+      });
     }
     print(_favouriteMeals);
   }
