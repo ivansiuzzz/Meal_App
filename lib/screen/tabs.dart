@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mealsapp/commonWidgets/beautiful_drawer.dart';
 import 'package:mealsapp/commonWidgets/custom_alert.dart';
 import 'package:mealsapp/models/meal.dart';
 import 'package:mealsapp/screen/categories.dart';
@@ -91,6 +92,27 @@ class _TabsScreenState extends State<TabsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(activePageTitle),
+      ),
+      drawer: BeautifulDrawer(
+        headerTitle: 'Cooking up',
+        headerSubtitle: '',
+        headerImage: Icons.fastfood,
+        drawerItems: [
+          DrawerItem(
+            icon: Icons.home,
+            title: 'Home',
+            onTap: () {
+              // Handle tap action
+            },
+          ),
+          DrawerItem(
+            icon: Icons.filter,
+            title: 'Filter',
+            onTap: () {
+              // Handle tap action
+            },
+          ),
+        ],
       ),
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(
