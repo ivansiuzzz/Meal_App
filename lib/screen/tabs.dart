@@ -3,6 +3,7 @@ import 'package:mealsapp/commonWidgets/beautiful_drawer.dart';
 import 'package:mealsapp/commonWidgets/custom_alert.dart';
 import 'package:mealsapp/models/meal.dart';
 import 'package:mealsapp/screen/categories.dart';
+import 'package:mealsapp/screen/filters.dart';
 import 'package:mealsapp/screen/meals.dart';
 
 class TabsScreen extends StatefulWidget {
@@ -73,6 +74,17 @@ class _TabsScreenState extends State<TabsScreen> {
     });
   }
 
+  void _setScreen(String identifier) {
+    Navigator.of(context).pop();
+    if (identifier == 'filters') {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (ctx) => const FilterScreen(),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget activePage = CategoriesScreen(
@@ -109,7 +121,7 @@ class _TabsScreenState extends State<TabsScreen> {
             icon: Icons.filter,
             title: 'Filter',
             onTap: () {
-              // Handle tap action
+              _setScreen("filters");
             },
           ),
         ],
