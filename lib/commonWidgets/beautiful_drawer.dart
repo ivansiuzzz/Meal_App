@@ -84,7 +84,6 @@ class BeautifulDrawer extends StatelessWidget {
               ),
               onTap: () {
                 item.onTap();
-                Navigator.pop(context);
               },
             );
           }).toList(),
