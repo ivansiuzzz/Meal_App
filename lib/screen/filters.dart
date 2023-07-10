@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mealsapp/commonWidgets/CustomSwitch.dart';
+import 'package:mealsapp/commonWidgets/custom_switch.dart';
 
 class FilterScreen extends StatelessWidget {
   const FilterScreen({super.key});
