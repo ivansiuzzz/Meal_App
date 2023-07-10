@@ -3,15 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:mealsapp/data/dummy_data.dart';
 import 'package:mealsapp/models/category.dart';
-import 'package:mealsapp/models/meal.dart';
 import 'package:mealsapp/providers/meals_provider.dart';
 import 'package:mealsapp/screen/meals.dart';
 import 'package:mealsapp/widgets/category_grid_item.dart';
 
 class CategoriesScreen extends ConsumerStatefulWidget {
-  const CategoriesScreen({super.key, required this.onToggleFavorite});
-
-  final void Function(Meal meal) onToggleFavorite;
+  const CategoriesScreen({super.key});
 
   @override
   ConsumerState<CategoriesScreen> createState() => _CategoriesScreenState();
@@ -27,9 +24,9 @@ class _CategoriesScreenState extends ConsumerState<CategoriesScreen> {
           meals.where((meal) => meal.categories.contains(category.id)).toList();
       Navigator.of(context).push(MaterialPageRoute(
           builder: (ctx) => MealsScreen(
-              title: category.title,
-              meals: filteredMeals,
-              onToggleFavorite: widget.onToggleFavorite)));
+                title: category.title,
+                meals: filteredMeals,
+              )));
     }
 
     return GridView(
